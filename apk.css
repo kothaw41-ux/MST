@@ -1,0 +1,137 @@
+/* styles.css */
+
+/* NEW COLOR SCHEME: Dark Mode with Vibrant Neon/High Contrast Accents */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1f2937; /* Dark Gray 800 background */
+    color: #f3f4f6; /* Light text */
+}
+.container {
+    max-width: 520px; 
+}
+.game-card {
+    background-color: #111827; 
+    box-shadow: 0 15px 30px -5px rgba(255, 0, 0, 0.3), 0 6px 10px -3px rgba(255, 0, 0, 0.1);
+    border: 3px solid #ef4444; 
+}
+.input-digit {
+    text-align: center;
+    font-size: 1.25rem; 
+    height: 2.75rem; 
+    border: 2px solid #a78bfa; 
+    font-weight: bold;
+    background-color: #f3f4f6; 
+    color: #1f2937; 
+    padding: 0.25rem;
+    transition: all 0.2s ease;
+    -webkit-appearance: none; 
+}
+
+#history-log-container {
+    -webkit-overflow-scrolling: touch; 
+}
+#history-log-container::-webkit-scrollbar {
+    height: 8px; 
+    width: 8px; 
+}
+#history-log-container::-webkit-scrollbar-thumb {
+    background-color: #9ca3af; 
+    border-radius: 4px;
+}
+
+/* Flash Animation */
+@keyframes flash {
+    0% { transform: scale(1); background-color: #111827; box-shadow: none; } 
+    50% { transform: scale(1.05); background-color: #fde047; box-shadow: 0 0 15px rgba(253, 224, 71, 1); }
+    100% { transform: scale(1); background-color: #111827; box-shadow: none; }
+}
+.animate-flash {
+    animation: flash 0.5s ease-in-out;
+}
+
+/* --- NEON BUBBLE STYLES (SHARED FOR ALL PREDICTIONS AND HISTORY) --- */
+/* Base styles for all bubbles */
+.base-bubble {
+    border-radius: 9999px; /* rounded-full */
+    width: 1.6rem; /* Slightly larger for prediction box */
+    height: 1.6rem; 
+    line-height: 1.6rem;
+    font-size: 0.85rem; /* Larger font */
+    font-weight: 800;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0 3px rgba(0,0,0,0.5); 
+    transition: all 0.2s;
+}
+
+/* Styles for Prediction Boxes (Larger Bubble Size) */
+.large-bubble {
+    border-radius: 9999px;
+    width: 3.5rem; /* Large size for main prediction box */
+    height: 3.5rem; 
+    line-height: 3.5rem;
+    font-size: 1.5rem;
+    font-weight: 900;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.25rem; 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* G / P (Target Group / Prediction - Solid Neon Fill) */
+.neon-solid-s { 
+    background-color: #10b981; /* Emerald 500 - Neon Green */
+    color: #ecfdf5; 
+    box-shadow: 0 0 5px #10b981;
+}
+.neon-solid-b { 
+    background-color: #f43f5e; /* Rose 500 - Hot Pink */
+    color: #fff1f2; 
+    box-shadow: 0 0 5px #f43f5e;
+}
+
+/* E (Extra Prediction - Border Only Neon) */
+.neon-border-s {
+    border: 3px solid #6366f1; /* Indigo 500 Border */
+    color: #a5b4fc; /* Indigo 300 Text */
+    background-color: transparent;
+    text-shadow: none;
+}
+.neon-border-b {
+    border: 3px solid #6366f1; /* Indigo 500 Border */
+    color: #a5b4fc; /* Indigo 300 Text */
+    background-color: transparent;
+    text-shadow: none;
+}
+
+/* History Log specific style (override base-bubble for smaller size) */
+.history-bubble {
+    width: 1.25rem; 
+    height: 1.25rem; 
+    line-height: 1.25rem;
+    font-size: 0.75rem; 
+    font-weight: 800;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9999px; 
+    text-shadow: 0 0 3px rgba(0,0,0,0.5);
+    transition: none;
+}
+
+/* New history entry style for correct/incorrect rows */
+.history-entry-correct-p {
+    background-color: rgba(16, 185, 129, 0.2); /* Green 500 with opacity for P */
+    border-left: 3px solid #10b981;
+}
+.history-entry-incorrect-p {
+    background-color: rgba(244, 63, 94, 0.2); /* Red 500 with opacity for P */
+    border-left: 3px solid #f43f5e;
+}
+/* Highlight row if E is correct and P is incorrect */
+.history-entry-correct-e {
+    background-color: rgba(99, 102, 241, 0.2); /* Indigo 500 with opacity for E */
+    border-right: 3px solid #6366f1;
+}
